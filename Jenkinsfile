@@ -13,7 +13,7 @@ pipeline {
             // commit: record code coverage
             if (env.CHANGE_ID == null) {
               currentBuild.result = 'SUCCESS'
-              step([$class: 'MasterCoverageAction', scmVars: [GIT_URL: fullBranchUrl(env.BRANCH_NAME)]])
+              step([$class: 'MasterCoverageAction', scmVars: [GIT_URL: scm.getUserRemoteConfigs()[0].getUrl()]])
             }
             // pull request: compare code coverage
             else if (env.CHANGE_ID != null) {
