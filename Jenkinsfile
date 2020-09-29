@@ -1,5 +1,3 @@
-def fullBranchUrl(branchName) { return "${scm.getUserRemoteConfigs()[0].getUrl()}/tree/$branchName" }
-
 pipeline {
   agent any
   stages {
